@@ -1,6 +1,6 @@
 # uv transitive OSV remediation — repro
 
-Minimal reproduction for [renovatebot/renovate PR — surface `uv.lock` transitive deps for `osvVulnerabilityAlerts`](https://github.com/renovatebot/renovate/pull/PR_NUMBER).
+Minimal reproduction for [renovatebot/renovate PR — surface `uv.lock` transitive deps for `osvVulnerabilityAlerts`](https://github.com/renovatebot/renovate/pull/44262).
 
 ## Scenario
 
