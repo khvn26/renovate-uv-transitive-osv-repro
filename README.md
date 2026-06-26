@@ -28,6 +28,8 @@ LOG_LEVEL=debug node /path/to/renovate/lib/renovate.ts --platform=local
 
 ## Result
 
+Running the PR branch against this repo produced a real security PR: **[#1 — Update dependency idna to v3.15 [SECURITY]](https://github.com/khvn26/renovate-uv-transitive-osv-repro/pull/1)**, which bumps `idna` in `uv.lock` via `uv lock --upgrade-package idna`. (The lookup proposes the minimum fixed version, 3.15; the `uv lock` step then resolves to the latest compatible, 3.18 — both clear the advisory.)
+
 Renovate surfaces `idna` as a disabled `uv.lock` dependency, matches it against OSV, re-enables it, and proposes a lockfile update to the fixed version — while the non-vulnerable transitive deps stay disabled and silent.
 
 ```
