@@ -4,9 +4,3 @@ version = "0.1.0"
 requires-python = ">=3.11"
 # A single, non-vulnerable direct dependency. It pulls in `idna` transitively.
 dependencies = ["requests>=2.32.5"]
-
-[tool.uv]
-# Deliberately pin the transitive `idna` to a known-vulnerable version
-# (3.6 — CVE-2024-3651 / GHSA-jjg7-2v4v-x38h, fixed in 3.7) to demonstrate
-# transitive remediation. `idna` is NOT a declared dependency.
-constraint-dependencies = ["idna==3.6"]

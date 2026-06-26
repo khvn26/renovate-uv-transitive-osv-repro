@@ -6,7 +6,7 @@ Minimal reproduction for [renovatebot/renovate PR — surface `uv.lock` transiti
 
 - `pyproject.toml` declares a single, non-vulnerable direct dependency: `requests`.
 - `requests` pulls in `idna` transitively. `idna` is **not** a declared dependency — it exists only in `uv.lock`.
-- To make the demo deterministic, `[tool.uv] constraint-dependencies` pins the transitive `idna` to `3.6`, a version with a known advisory (`GHSA-jjg7-2v4v-x38h` / CVE-2024-3651, fixed in 3.7). The constraint only plants the vulnerable version; it is not part of the feature.
+- `uv.lock` deliberately carries an outdated transitive `idna` 3.6 — a version with a known advisory (`GHSA-jjg7-2v4v-x38h` / CVE-2024-3651, fixed in 3.7). It was produced with `uv lock --upgrade-package idna==3.6`; nothing pins it in `pyproject.toml`, so Renovate is free to remediate it.
 
 Before this PR, Renovate's uv manager discards packages that live only in `uv.lock`, so `osvVulnerabilityAlerts` never sees `idna` and the vulnerability goes unreported.
 

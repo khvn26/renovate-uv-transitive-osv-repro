@@ -2,9 +2,6 @@ version = 1
 revision = 3
 requires-python = ">=3.11"
 
-[manifest]
-constraints = [{ name = "idna", specifier = "==3.6" }]
-
 [[package]]
 name = "certifi"
 version = "2026.6.17"
